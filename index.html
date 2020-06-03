@@ -114,15 +114,15 @@
   }
 
   function style(feature) {
-    return {weight: 2, opacity: 1, color: 'white', fillColor: 'white'};
+    return {weight: 2, opacity: 1, color: '#202020', fillColor: '#202020'};
   }
       
   var legend = L.control({position: 'bottomright'});
   legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
-            labels = ['<strong>Productivity trend</strong>'],
-            categories = ['1. None','2. Water','3. Climate','4. Land','5. Water & Climate','6. Water & Land', '7. Climate & Land', 'Water & Climate & Land'];
+            labels = ['<strong><i>Anopheles Gambiae s.s.</i> Fundamental Niche</strong>'],
+            categories = ['1. None','2. Water','3. Climate','4. Land','5. Water & Climate','6. Water & Land', '7. Climate & Land', '8. Water & Climate & Land'];
 
         for (var i = 0; i < categories.length; i++) {
 
