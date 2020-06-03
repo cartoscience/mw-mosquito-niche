@@ -103,14 +103,14 @@
   }).addTo(map);
       
   function getColor(d) {
-        return d === '1. None'      ? "#ffffff" :
-               d === '2. Water'    ? "#03c383" :
-               d === '3. Climate'   ? "#fbbf45" :
-               d === '4. Land'   ? "#aad962" :
+        return d === '1. None'              ? "#ffffff" :
+               d === '2. Water'             ? "#03c383" :
+               d === '3. Climate'           ? "#fbbf45" :
+               d === '4. Land'              ? "#aad962" :
                d === '5. Water & Climate'   ? "#a12a5e" :
-               d === '6. Water & Land'   ? "#015f66" :
-           d === '7. Climate & Land'     ? "#ef6a32" :
-                                         "#ed0345" ;
+               d === '6. Water & Land'      ? "#015f66" :
+               d === '7. Climate & Land'    ? "#ef6a32" :
+                                              "#ed0345" ;
   }
 
   function style(feature) {
