@@ -59,33 +59,17 @@
       
   var colors = ['ffffff','03c383','fbbf45','aad962','a12a5e','015f66','ef6a32','ed0345'];
       
-  d3.text('./images/FILENAME.asc', function (asc) {
-    var sd = L.ScalarField.fromASCIIGrid(asc);
-        var layerd = L.canvasLayer.scalarField(sd).addTo(map);
-    layerd.setColor(chroma.scale(colors).classes([1,2,3,4,5,6,7,8,9]));  
-    controlLayers.addBaseLayer(layerd, 'Dry Season'); //addOverlay
+  d3.text('./images/combinedniche_2016-12-01_2017-03-31_rainy0.asc', function (asc) {
+    var s = L.ScalarField.fromASCIIGrid(asc);
+        var layer = L.canvasLayer.scalarField(sd).addTo(map);
+    layer.setColor(chroma.scale(colors).classes([1,2,3,4,5,6,7,8,9]));  
+    controlLayers.addBaseLayer(layer, 'Rainy Season Q1–4'); //addOverlay
               
-        layerd.on('click', function (ed) {
-        if (ed.value !== null) {
-            var vd = ed.value; //.toFixed(1);
-            var htmld = `<span class="popupText">Category: ${vd} </span>`;
-            var popupd = L.popup().setLatLng(ed.latlng).setContent(htmld).openOn(map);
-        }
-        });   
-  });
-      
-  d3.text('./images/FILENAME.asc', function (asc) {
-    var sc = L.ScalarField.fromASCIIGrid(asc);
-        var layerc = L.canvasLayer.scalarField(sc).addTo(map);
-    layerc.setColor(chroma.scale(colors).classes([1,2,3,4,5,6,7,8,9]));  
-    controlLayers.addBaseLayer(layerc, 'Rainy Season (Q4)'); 
-    map.fitBounds(layerc.getBounds());
-      
-        layerc.on('click', function (ec) {
-        if (ec.value !== null) {
-            var vc = ec.value; //.toFixed(1);
-            var htmlc = `<span class="popupText">Category: ${vc} </span>`;
-            var popupc = L.popup().setLatLng(ec.latlng).setContent(htmlc).openOn(map);
+        layer.on('click', function (ed) {
+        if (e.value !== null) {
+            var v = e.value; //.toFixed(1);
+            var html = `<span class="popupText">Category: ${vd} </span>`;
+            var popup = L.popup().setLatLng(ed.latlng).setContent(html).openOn(map);
         }
         });   
   });
@@ -111,10 +95,6 @@
                d === '6. Water & Land'      ? "#015f66" :
                d === '7. Climate & Land'    ? "#ef6a32" :
                                               "#ed0345" ;
-  }
-
-  function style(feature) {
-    return {weight: 2, opacity: 1, color: '#202020', fillColor: '#202020'};
   }
       
   var legend = L.control({position: 'bottomright'});
